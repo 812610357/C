@@ -35,43 +35,47 @@ int main()
     }
     {
         int m, i, k, h = 0, leap = 1;
-    printf("\n");
-    for (m = 101; m <= 200; m++)
-    {
-        k = sqrt(m + 1);
-        for (i = 2; i <= k; i++)
-            if (m % i == 0)
+        printf("\n");
+        for (m = 101; m <= 200; m++)
+        {
+            k = sqrt(m + 1);
+            for (i = 2; i <= k; i++)
+                if (m % i == 0)
+                {
+                    leap = 0;
+                    break;
+                }
+            if (leap)
             {
-                leap = 0; break;
+                printf("%-4d", m);
+                h++;
+                if (h % 10 == 0)
+                    printf("\n");
             }
-        if (leap) {
-            printf("%-4d", m); h++;
-            if (h % 10 == 0)
-                printf("\n");
+            leap = 1;
         }
-        leap = 1;
-    }
-    printf("\nThe?total?is?%d", h);
+        printf("\nThe?total?is?%d", h);
     }
     {
         float x, y, z;
-            scanf("%f,%f", &x, &y);
-            z = x / y;
-            while (1)
+        scanf("%f,%f", &x, &y);
+        z = x / y;
+        while (1)
+        {
+            if (fabs(z) > 1.0)
             {
-                if (fabs(z) > 1.0)
-                {
-                    x = y;
-                    y = z;
-                    z = x / y;
-                }
-                else break;
+                x = y;
+                y = z;
+                z = x / y;
             }
+            else
+                break;
+        }
         printf("%f\n", y);
         system("pause");
     }
     {
-        int  i, j,N=4;
+        int i, j, N = 4;
         for (i = 1; i <= N; i++)
         {
             for (j = 1; j < i; j++)
@@ -97,7 +101,7 @@ int main()
         printf("%d", sizeof(long double));
         int m = 0;
         char c;
-        while (c=getchar() != '\n')
+        while (c = getchar() != '\n')
             m++;
         printf("%d", m);
         system("pause");
@@ -128,8 +132,10 @@ int main()
             scanf("%c", &k);
             switch (k)
             {
-            case '0':printf("a");
-            case '1':printf("n");
+            case '0':
+                printf("a");
+            case '1':
+                printf("n");
             }
         }
         system("pause");
@@ -172,12 +178,14 @@ int main()
         for (i = 0; i < 2; i++)
         {
             k++;
-            {int k = 0;
-            for (j = 0; j <= 3; j++)
             {
-                if (j % 2) continue;
-                k++;
-            }
+                int k = 0;
+                for (j = 0; j <= 3; j++)
+                {
+                    if (j % 2)
+                        continue;
+                    k++;
+                }
             }
             k++;
         }
