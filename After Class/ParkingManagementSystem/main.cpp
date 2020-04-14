@@ -362,7 +362,7 @@ void charging(struct car Car[20], FILE *fp) //取车收费，原数据清空
 	printf("请输出即将离开的车的车牌号：\n");
 	getchar();
 	char s[20];
-	gets(s);
+	gets_s(s);
 	if ((fp = fopen("car.dat", "rb+")) == NULL)
 	{
 		printf("cannot open this file\n");
@@ -412,7 +412,7 @@ void function_carnumber(struct car Car[20], FILE *fp) //车牌号查询
 	time_t t2;
 	printf("请输入车牌号：");
 	getchar();
-	gets(carn);
+	gets_s(carn);
 	if ((fp = fopen("car.dat", "rb")) == NULL)
 	{
 		printf("cannot open this file\n");
@@ -603,7 +603,7 @@ void manual_maintenance_and_adjustment(struct car Car[20], FILE *fp) //人工维护
 	time_t t2;
 	printf("请输入车牌号：");
 	getchar();
-	gets(carn);
+	gets_s(carn);
 	if ((fp = fopen("car.dat", "rb")) == NULL)
 	{
 		printf("cannot open this file\n");
