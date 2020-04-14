@@ -36,7 +36,7 @@ float Volume(float a, float b, float c)
 //ÄêÁäµİ¹é
 unsigned int Age(unsigned int n, unsigned int age)
 {
-    if (n == 0)
+    if (n == 1 || n == 0)
         return age;
     else
         return Age(n - 1, age + 2);
