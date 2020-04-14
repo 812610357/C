@@ -1,4 +1,4 @@
-ï»¿#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
@@ -7,7 +7,7 @@ int main()
 	{
 		int n, i=0;
 		double s = 0;
-		printf("è¯·è¾“å…¥0è‡³511ä¹‹é—´çš„æ•´æ•° n=");
+		printf("ÇëÊäÈë0ÖÁ511Ö®¼äµÄÕûÊı n=");
 		scanf("%d", &n);
 		while (i <= n)
 		{
@@ -20,7 +20,7 @@ int main()
 
 	{
 		int n,i = 1;
-		printf("è¯·è¾“å…¥1è‡³9ä¹‹é—´çš„æ•´æ•° n=");
+		printf("ÇëÊäÈë1ÖÁ9Ö®¼äµÄÕûÊı n=");
 		scanf("%d", &n);
 		int a = 0, b = 1;
 		while (i<=n)

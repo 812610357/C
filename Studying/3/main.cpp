@@ -1,4 +1,4 @@
-ï»¿#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
@@ -7,7 +7,7 @@ int main()
 	{
 		char c;
 		int let = 0, num = 0, spa = 0, oth = 0;
-		printf("è¯·è¾“å…¥å­—ç¬¦ï¼š");
+		printf("ÇëÊäÈë×Ö·û£º");
 		while ((c = getchar()) != '\n')
 		{
 			if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
@@ -27,16 +27,16 @@ int main()
 			}
 			oth++;
 		}
-		printf("å­—ç¬¦ç»Ÿè®¡\n");
-		printf("è‹±æ–‡å­—æ¯ï¼š%-4dä¸ª\n", let);
-		printf("    æ•°å­—ï¼š%-4dä¸ª\n", num);
-		printf("    ç©ºæ ¼ï¼š%-4dä¸ª\n", spa);
-		printf("å…¶ä»–å­—ç¬¦ï¼š%-4dä¸ª\n", oth);
+		printf("×Ö·ûÍ³¼Æ\n");
+		printf("Ó¢ÎÄ×ÖÄ¸£º%-4d¸ö\n", let);
+		printf("    Êý×Ö£º%-4d¸ö\n", num);
+		printf("    ¿Õ¸ñ£º%-4d¸ö\n", spa);
+		printf("ÆäËû×Ö·û£º%-4d¸ö\n", oth);
 		system("pause");
 	}
 
 	{
-		printf("10000ä»¥å†…çš„åŒæž„æ•°æœ‰\n");
+		printf("10000ÒÔÄÚµÄÍ¬¹¹ÊýÓÐ\n");
 		long i = 1;
 		while (i <= 10000)
 		{
