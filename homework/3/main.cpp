@@ -34,7 +34,6 @@ int main()
 		printf("其他字符：%-4d个\n", oth);
 		system("pause");
 	}
-
 	{
 		printf("10000以内的同构数有\n");
 		long i = 1;
@@ -54,6 +53,5 @@ int main()
 		printf("\n");
 		system("pause");
 	}
-
 	return 0;
 }
