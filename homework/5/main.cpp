@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 
 float Volume(float a, float b, float c);
@@ -10,21 +10,21 @@ int main()
 {
     {
         float a, b, c;
-        printf("ÇëÊäÈë³¤·½ÌåµÄÈıÌõÀâ³¤£¬ÒÔ¶ººÅ·Ö¸ô\n");
+        printf("è¯·è¾“å…¥é•¿æ–¹ä½“çš„ä¸‰æ¡æ£±é•¿ï¼Œä»¥é€—å·åˆ†éš”\n");
         scanf("%f,%f,%f", &a, &b, &c);
         float v = Volume(a, b, c);
-        printf("Ìå»ıÎª%.2f£¬Èı¸öÃæµÄÃæ»ı·Ö±ğÎª%.2f£¬%.2f£¬%.2f\n", v, S1, S2, S3);
+        printf("ä½“ç§¯ä¸º%.2fï¼Œä¸‰ä¸ªé¢çš„é¢ç§¯åˆ†åˆ«ä¸º%.2fï¼Œ%.2fï¼Œ%.2f\n", v, S1, S2, S3);
         system("pause");
     }
     {
         unsigned int n = 5, age = 10;
-        printf("µÚ5¸öÈË%dËê\n", Age(n, age));
+        printf("ç¬¬5ä¸ªäºº%då²\n", Age(n, age));
         system("pause");
     }
     return 0;
 }
 
-//¼ÆËãÌå»ıºÍÃæ»ı
+//è®¡ç®—ä½“ç§¯å’Œé¢ç§¯
 float Volume(float a, float b, float c)
 {
     S1 = a * b;
@@ -33,7 +33,7 @@ float Volume(float a, float b, float c)
     return a * b * c;
 }
 
-//ÄêÁäµİ¹é
+//å¹´é¾„é€’å½’
 unsigned int Age(unsigned int n, unsigned int age)
 {
     if (n == 1 || n == 0)

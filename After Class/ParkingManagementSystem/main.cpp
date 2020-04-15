@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
@@ -8,54 +8,54 @@ struct car
 	int floor;
 	int position;
 	int time;
-	time_t timeIn; // ½øÈëÍ£³µ³¡Ê±¼ä
+	time_t timeIn; // è¿›å…¥åœè½¦åœºæ—¶é—´
 	time_t timeOut;
 };
 
-void mainmenu(); //Ö÷²Ëµ¥
-//Ò»¼¶²Ëµ¥
-void vehicle_information_management(); //³µÁ¾ĞÅÏ¢¹ÜÀí
-void information_initialization();	   //ĞÅÏ¢³õÊ¼»¯
-void information_maintenance();		   //ĞÅÏ¢Î¬»¤
+void mainmenu(); //ä¸»èœå•
+//ä¸€çº§èœå•
+void vehicle_information_management(); //è½¦è¾†ä¿¡æ¯ç®¡ç†
+void information_initialization();	   //ä¿¡æ¯åˆå§‹åŒ–
+void information_maintenance();		   //ä¿¡æ¯ç»´æŠ¤
 
-void parking_information_management();	   //³µÎ»ĞÅÏ¢¹ÜÀí
-void parking_information_initialization(); //³µÎ»ĞÅÏ¢³õÊ¼»¯
-void parking_information_maintenance();	   //³µÎ»ĞÅÏ¢Î¬»¤
+void parking_information_management();	   //è½¦ä½ä¿¡æ¯ç®¡ç†
+void parking_information_initialization(); //è½¦ä½ä¿¡æ¯åˆå§‹åŒ–
+void parking_information_maintenance();	   //è½¦ä½ä¿¡æ¯ç»´æŠ¤
 
-void parking_allocation_and_charging();								  //³µÎ»·ÖÅäÓëÊÕ·Ñ
-void automatically_assigned();										  //×Ô¶¯·ÖÅä
-void manual_maintenance_and_adjustment(struct car Car[20], FILE *fp); //ÈË¹¤Î¬»¤µ÷Õû
-void chucun(struct car a[], int b);									  //´æ³µ
-void tiaozheng(struct car Car[20], FILE *fp, int f);				  //³µÎ»µ÷Õû
-void charging(struct car Car[20], FILE *fp);						  //È¡³µÊÕ·Ñ
+void parking_allocation_and_charging();								  //è½¦ä½åˆ†é…ä¸æ”¶è´¹
+void automatically_assigned();										  //è‡ªåŠ¨åˆ†é…
+void manual_maintenance_and_adjustment(struct car Car[20], FILE *fp); //äººå·¥ç»´æŠ¤è°ƒæ•´
+void chucun(struct car a[], int b);									  //å­˜è½¦
+void tiaozheng(struct car Car[20], FILE *fp, int f);				  //è½¦ä½è°ƒæ•´
+void charging(struct car Car[20], FILE *fp);						  //å–è½¦æ”¶è´¹
 
-void parking_information_query();					   //³µÎ»ĞÅÏ¢²éÑ¯
-void function_carnumber(struct car Car[20], FILE *fp); //³µÅÆºÅ²éÑ¯
+void parking_information_query();					   //è½¦ä½ä¿¡æ¯æŸ¥è¯¢
+void function_carnumber(struct car Car[20], FILE *fp); //è½¦ç‰Œå·æŸ¥è¯¢
 void function_floor(struct car Car[20], FILE *fp);
-;												 //²éÑ¯Â¥²ã
-void function_pos(struct car Car[20], FILE *fp); //³µÎ»²éÑ¯
+;												 //æŸ¥è¯¢æ¥¼å±‚
+void function_pos(struct car Car[20], FILE *fp); //è½¦ä½æŸ¥è¯¢
 
 void function5();
 int main()
 {
-	system("color 0B"); //µ÷Õû³ÌĞòµÄÑÕÉ«£¬¿ÉÒÔÉ¾³ı
+	system("color 0B"); //è°ƒæ•´ç¨‹åºçš„é¢œè‰²ï¼Œå¯ä»¥åˆ é™¤
 	mainmenu();
 	system("pause");
 	return 0;
 }
-void mainmenu() //Ö÷²Ëµ¥
+void mainmenu() //ä¸»èœå•
 {
 	int a;
 	printf("\n\n\n\n");
 	printf("                     *************************************\n");
-	printf("                            »¶Ó­Ê¹ÓÃÍ£³µ³¡¹ÜÀíÏµÍ³!\n");
-	printf("                           ÊäÈëÊı×Ö½øĞĞÄúÏëÒªµÄ²Ù×÷¡£\n");
+	printf("                            æ¬¢è¿ä½¿ç”¨åœè½¦åœºç®¡ç†ç³»ç»Ÿ!\n");
+	printf("                           è¾“å…¥æ•°å­—è¿›è¡Œæ‚¨æƒ³è¦çš„æ“ä½œã€‚\n");
 	printf("\n\n");
-	printf("                               1.³µÁ¾ĞÅÏ¢¹ÜÀí\n");
-	printf("                               2.³µÎ»ĞÅÏ¢¹ÜÀí\n");
-	printf("                               3.³µÎ»·ÖÅäÓëÊÕ·Ñ\n");
-	printf("                               4.³µÎ»ĞÅÏ¢²éÑ¯\n");
-	printf("                               5.ÍË³ö\n");
+	printf("                               1.è½¦è¾†ä¿¡æ¯ç®¡ç†\n");
+	printf("                               2.è½¦ä½ä¿¡æ¯ç®¡ç†\n");
+	printf("                               3.è½¦ä½åˆ†é…ä¸æ”¶è´¹\n");
+	printf("                               4.è½¦ä½ä¿¡æ¯æŸ¥è¯¢\n");
+	printf("                               5.é€€å‡º\n");
 	printf("                     *************************************\n");
 	scanf("%d", &a);
 	system("cls");
@@ -77,21 +77,21 @@ void mainmenu() //Ö÷²Ëµ¥
 		system("cls");
 		break;
 	default:
-		printf("ÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡");
+		printf("è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼");
 		mainmenu();
 		break;
 	}
 }
-void vehicle_information_management() //³µÁ¾ĞÅÏ¢¹ÜÀí
+void vehicle_information_management() //è½¦è¾†ä¿¡æ¯ç®¡ç†
 {
 	int a;
 	printf("\n\n\n\n");
 	printf("                     *************************************\n");
-	printf("                            »¶Ó­Ê¹ÓÃÍ£³µ³¡¹ÜÀíÏµÍ³!\n");
-	printf("                           ÊäÈëÊı×Ö½øĞĞÄúÏëÒªµÄ²Ù×÷¡£\n");
+	printf("                            æ¬¢è¿ä½¿ç”¨åœè½¦åœºç®¡ç†ç³»ç»Ÿ!\n");
+	printf("                           è¾“å…¥æ•°å­—è¿›è¡Œæ‚¨æƒ³è¦çš„æ“ä½œã€‚\n");
 	printf("\n\n");
-	printf("                               1.ĞÅÏ¢³õÊ¼»¯\n");
-	printf("                               2.·µ»Øµ½ÉÏÒ»¼¶\n");
+	printf("                               1.ä¿¡æ¯åˆå§‹åŒ–\n");
+	printf("                               2.è¿”å›åˆ°ä¸Šä¸€çº§\n");
 	printf("                     *************************************\n");
 	scanf("%d", &a);
 	system("cls");
@@ -104,22 +104,22 @@ void vehicle_information_management() //³µÁ¾ĞÅÏ¢¹ÜÀí
 		mainmenu();
 		break;
 	default:
-		printf("ÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡");
+		printf("è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼");
 		vehicle_information_management();
 		break;
 	}
 }
-void parking_information_management() //³µÎ»ĞÅÏ¢¹ÜÀí
+void parking_information_management() //è½¦ä½ä¿¡æ¯ç®¡ç†
 {
 	int a;
 	printf("\n\n\n\n");
 	printf("                     *************************************\n");
-	printf("                            »¶Ó­Ê¹ÓÃÍ£³µ³¡¹ÜÀíÏµÍ³!\n");
-	printf("                           ÊäÈëÊı×Ö½øĞĞÄúÏëÒªµÄ²Ù×÷¡£\n");
+	printf("                            æ¬¢è¿ä½¿ç”¨åœè½¦åœºç®¡ç†ç³»ç»Ÿ!\n");
+	printf("                           è¾“å…¥æ•°å­—è¿›è¡Œæ‚¨æƒ³è¦çš„æ“ä½œã€‚\n");
 	printf("\n\n");
-	printf("                               1.³µÎ»ĞÅÏ¢³õÊ¼»¯\n");
-	printf("                               2.³µÎ»ĞÅÏ¢×´Ì¬\n");
-	printf("                               3.·µ»Øµ½ÉÏÒ»¼¶\n");
+	printf("                               1.è½¦ä½ä¿¡æ¯åˆå§‹åŒ–\n");
+	printf("                               2.è½¦ä½ä¿¡æ¯çŠ¶æ€\n");
+	printf("                               3.è¿”å›åˆ°ä¸Šä¸€çº§\n");
 	printf("                     *************************************\n");
 	scanf("%d", &a);
 	system("cls");
@@ -135,25 +135,25 @@ void parking_information_management() //³µÎ»ĞÅÏ¢¹ÜÀí
 		mainmenu();
 		break;
 	default:
-		printf("ÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡");
+		printf("è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼");
 		parking_information_management();
 		break;
 	}
 }
-void parking_allocation_and_charging() //³µÎ»·ÖÅäÓëÊÕ·Ñ
+void parking_allocation_and_charging() //è½¦ä½åˆ†é…ä¸æ”¶è´¹
 {
 	struct car Car[20];
 	FILE *fp;
 	int a;
 	printf("\n\n\n\n");
 	printf("                     *************************************\n");
-	printf("                            »¶Ó­Ê¹ÓÃÍ£³µ³¡¹ÜÀíÏµÍ³!\n");
-	printf("                           ÊäÈëÊı×Ö½øĞĞÄúÏëÒªµÄ²Ù×÷¡£\n");
+	printf("                            æ¬¢è¿ä½¿ç”¨åœè½¦åœºç®¡ç†ç³»ç»Ÿ!\n");
+	printf("                           è¾“å…¥æ•°å­—è¿›è¡Œæ‚¨æƒ³è¦çš„æ“ä½œã€‚\n");
 	printf("\n\n");
-	printf("                               1.´æ³µ\n");
-	printf("                               2.ÈË¹¤Î¬»¤µ÷Õû\n");
-	printf("                               3.È¡³µÊÕ·Ñ\n");
-	printf("                               4.·µ»Øµ½ÉÏÒ»¼¶\n");
+	printf("                               1.å­˜è½¦\n");
+	printf("                               2.äººå·¥ç»´æŠ¤è°ƒæ•´\n");
+	printf("                               3.å–è½¦æ”¶è´¹\n");
+	printf("                               4.è¿”å›åˆ°ä¸Šä¸€çº§\n");
 	printf("                     *************************************\n");
 	scanf("%d", &a);
 	system("cls");
@@ -172,12 +172,12 @@ void parking_allocation_and_charging() //³µÎ»·ÖÅäÓëÊÕ·Ñ
 		mainmenu();
 		break;
 	default:
-		printf("ÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡");
+		printf("è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼");
 		parking_allocation_and_charging();
 		break;
 	}
 }
-void parking_information_query() //³µÎ»ĞÅÏ¢²éÑ¯
+void parking_information_query() //è½¦ä½ä¿¡æ¯æŸ¥è¯¢
 {
 	char a, ds[10];
 	int i = 0, j = 0, k = 0, carNO, fee;
@@ -191,7 +191,7 @@ void parking_information_query() //³µÎ»ĞÅÏ¢²éÑ¯
 		exit(0);
 	}
 	time_t t1[200];
-	for (i = 0; i < 20; i++) //¶ÁÈ¡ÎÄ¼şÊı¾İ
+	for (i = 0; i < 20; i++) //è¯»å–æ–‡ä»¶æ•°æ®
 	{
 		fread(&Car[i], sizeof(struct car), 1, fp);
 		//printf("file write error\n");
@@ -200,13 +200,13 @@ void parking_information_query() //³µÎ»ĞÅÏ¢²éÑ¯
 	int b;
 	printf("\n\n\n\n");
 	printf("                     *************************************\n");
-	printf("                            »¶Ó­Ê¹ÓÃÍ£³µ³¡¹ÜÀíÏµÍ³!\n");
-	printf("                           ÊäÈëÊı×Ö½øĞĞÄúÏëÒªµÄ²Ù×÷¡£\n");
+	printf("                            æ¬¢è¿ä½¿ç”¨åœè½¦åœºç®¡ç†ç³»ç»Ÿ!\n");
+	printf("                           è¾“å…¥æ•°å­—è¿›è¡Œæ‚¨æƒ³è¦çš„æ“ä½œã€‚\n");
 	printf("\n\n");
-	printf("                               1.³µÅÆºÅ²éÑ¯\n");
-	printf("                               2.²éÑ¯Â¥²ã\n");
-	printf("                               3.³µÎ»²éÑ¯\n");
-	printf("                               4.·µ»Øµ½ÉÏÒ»¼¶\n");
+	printf("                               1.è½¦ç‰Œå·æŸ¥è¯¢\n");
+	printf("                               2.æŸ¥è¯¢æ¥¼å±‚\n");
+	printf("                               3.è½¦ä½æŸ¥è¯¢\n");
+	printf("                               4.è¿”å›åˆ°ä¸Šä¸€çº§\n");
 	printf("                     *************************************\n");
 	scanf("%d", &b);
 	system("cls");
@@ -225,17 +225,17 @@ void parking_information_query() //³µÎ»ĞÅÏ¢²éÑ¯
 		mainmenu();
 		break;
 	default:
-		printf("ÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡");
+		printf("è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼");
 		parking_information_query();
 		break;
 	}
 }
 
-void information_initialization() //ĞÅÏ¢³õÊ¼»¯
+void information_initialization() //ä¿¡æ¯åˆå§‹åŒ–
 {
 	FILE *fp;
 	int i, j, k, n;
-	printf("ÇëÊäÈëÍ£³µ³¡ÖĞµÄ³µÁ¾µÄÊıÁ¿£º\n");
+	printf("è¯·è¾“å…¥åœè½¦åœºä¸­çš„è½¦è¾†çš„æ•°é‡ï¼š\n");
 	scanf("%d", &n);
 	struct car Car[n];
 	void input(struct car a[], int b);
@@ -248,36 +248,36 @@ void information_initialization() //ĞÅÏ¢³õÊ¼»¯
 	fclose(fp);
 	void scrprint(struct car a[], int b);
 	scrprint(Car, n);
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	getchar();
 	system("cls");
 	vehicle_information_management();
 }
-void information_maintenance() //ĞÅÏ¢Î¬»¤
+void information_maintenance() //ä¿¡æ¯ç»´æŠ¤
 {
 }
-void parking_information_initialization() //³µÎ»ĞÅÏ¢³õÊ¼»¯
+void parking_information_initialization() //è½¦ä½ä¿¡æ¯åˆå§‹åŒ–
 {
 	int a, b;
-	printf("ÇëÊäÈëÍ£³µ³¡µÄ²ãÊı£º\n");
+	printf("è¯·è¾“å…¥åœè½¦åœºçš„å±‚æ•°ï¼š\n");
 	scanf("%d", &a);
-	printf("ÇëÊäÈëÃ¿²ãµÄ³µÎ»ÊıÁ¿£º\n");
+	printf("è¯·è¾“å…¥æ¯å±‚çš„è½¦ä½æ•°é‡ï¼š\n");
 	scanf("%d", &b);
-	printf("Í£³µ³¡³õÊ¼»¯Íê³É!\n¹²%d²ã£¬Ã¿²ãÓĞ%d¸ö³µÎ»¡£", a, b);
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("åœè½¦åœºåˆå§‹åŒ–å®Œæˆ!\nå…±%då±‚ï¼Œæ¯å±‚æœ‰%dä¸ªè½¦ä½ã€‚", a, b);
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	getchar();
 	system("cls");
 	parking_information_management();
 }
-void parking_information_maintenance() //³µÎ»ĞÅÏ¢×´Ì¬
+void parking_information_maintenance() //è½¦ä½ä¿¡æ¯çŠ¶æ€
 {
 	FILE *fp;
 	int i;
 	fp = fopen("car.dat", "r");
 	struct car Car[20];
-	for (i = 0; i < 20; i++) //¶ÁÈ¡ÎÄ¼şÊı¾İ
+	for (i = 0; i < 20; i++) //è¯»å–æ–‡ä»¶æ•°æ®
 	{
 		fread(&Car[i], sizeof(struct car), 1, fp);
 	}
@@ -286,25 +286,25 @@ void parking_information_maintenance() //³µÎ»ĞÅÏ¢×´Ì¬
 	{
 		if (Car[i].floor != 0 && Car[i].floor < 3 && Car[i].position != 0 && Car[i].position < 11)
 		{
-			printf("%d²ã%dºÅ³µÎ»ÒÑ±»Õ¼ÓÃ\n", Car[i].floor, Car[i].position);
+			printf("%då±‚%då·è½¦ä½å·²è¢«å ç”¨\n", Car[i].floor, Car[i].position);
 		}
 		else if (i == 21)
 		{
-			printf("Í£³µ³¡»¹ÊÇ¿ÕµÄ¡£\n");
+			printf("åœè½¦åœºè¿˜æ˜¯ç©ºçš„ã€‚\n");
 			break;
 		}
 	}
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	getchar();
 	system("cls");
 	parking_information_management();
 }
-void automatically_assigned() //´æ³µ
+void automatically_assigned() //å­˜è½¦
 {
 	FILE *fp;
 	int i, j, k, n;
-	printf("ÇëÊäÈëÒª´æ³µÁ¾µÄÊıÁ¿£º\n");
+	printf("è¯·è¾“å…¥è¦å­˜è½¦è¾†çš„æ•°é‡ï¼š\n");
 	scanf("%d", &n);
 	struct car Car[n];
 	void input(struct car a[], int b);
@@ -316,7 +316,7 @@ void automatically_assigned() //´æ³µ
 	}
 	fclose(fp);
 	void scrprint(struct car a[], int b);
-	printf("´æ³µ³É¹¦£¡\n°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("å­˜è½¦æˆåŠŸï¼\næŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	getchar();
 	system("cls");
@@ -326,8 +326,8 @@ void automatically_assigned() //´æ³µ
 void input(struct car a[], int b)
 {
 	int i;
-	printf("Â¥²ã ³µÎ»ºÅ ³µÅÆ    \n");
-	printf("-ÎÒ-ÊÇ-ÃÈ-ÃÈ-ßÕ-µÄ-·Ö-½ç-Ïß-\n");
+	printf("æ¥¼å±‚ è½¦ä½å· è½¦ç‰Œ    \n");
+	printf("-æˆ‘-æ˜¯-èŒ-èŒ-å“’-çš„-åˆ†-ç•Œ-çº¿-\n");
 	for (i = 0; i < b; i++)
 	{
 		scanf("%d %d %s", &a[i].floor, &a[i].position, &a[i].carnumber);
@@ -337,7 +337,7 @@ void input(struct car a[], int b)
 void chucun(struct car a[], int b)
 {
 	int i;
-	printf("ÇëÊäÈëÒª´æ³µÁ¾µÄÂ¥²ã Î»ÖÃ ³µÅÆºÅ\n");
+	printf("è¯·è¾“å…¥è¦å­˜è½¦è¾†çš„æ¥¼å±‚ ä½ç½® è½¦ç‰Œå·\n");
 
 	for (i = 0; i < b; i++)
 	{
@@ -349,26 +349,26 @@ void chucun(struct car a[], int b)
 void scrprint(struct car a[], int b)
 {
 	int i;
-	printf("\nÂ¥²ã ³µÎ»ºÅ   ³µÅÆ    Í£ÈëÊ±¼ä");
-	printf("\n-----»¹-----ÊÇ-----ÎÒ-----À²-----");
+	printf("\næ¥¼å±‚ è½¦ä½å·   è½¦ç‰Œ    åœå…¥æ—¶é—´");
+	printf("\n-----è¿˜-----æ˜¯-----æˆ‘-----å•¦-----");
 	for (i = 0; i < b; i++)
 	{
 		printf("\n%d    %d      %s   %s", a[i].floor, a[i].position, a[i].carnumber, ctime(&a[i].timeIn));
 	}
 }
-void charging(struct car Car[20], FILE *fp) //È¡³µÊÕ·Ñ£¬Ô­Êı¾İÇå¿Õ
+void charging(struct car Car[20], FILE *fp) //å–è½¦æ”¶è´¹ï¼ŒåŸæ•°æ®æ¸…ç©º
 {
 	int i = 0;
-	printf("ÇëÊä³ö¼´½«Àë¿ªµÄ³µµÄ³µÅÆºÅ£º\n");
+	printf("è¯·è¾“å‡ºå³å°†ç¦»å¼€çš„è½¦çš„è½¦ç‰Œå·ï¼š\n");
 	getchar();
 	char s[20];
-	gets_s(s);
+	gets(s);
 	if ((fp = fopen("car.dat", "rb+")) == NULL)
 	{
 		printf("cannot open this file\n");
 		exit(0);
 	}
-	for (i = 0; i < 20; i++) //¶ÁÈ¡ÎÄ¼şÊı¾İ
+	for (i = 0; i < 20; i++) //è¯»å–æ–‡ä»¶æ•°æ®
 	{
 		fread(&Car[i], sizeof(struct car), 1, fp);
 	}
@@ -379,13 +379,13 @@ void charging(struct car Car[20], FILE *fp) //È¡³µÊÕ·Ñ£¬Ô­Êı¾İÇå¿Õ
 	}
 	time_t t2;
 	if (i == 21)
-		printf("±§Ç¸£¬Ã»ÓĞÕâÁ¾³µ£¡");
+		printf("æŠ±æ­‰ï¼Œæ²¡æœ‰è¿™è¾†è½¦ï¼");
 	else
 	{
 		time(&t2);
 		Car[i].time = t2 - Car[i].timeIn;
 		int price = Car[i].time / 10;
-		printf("³µÅÆºÅÎª%sµÄ³µ¹²ÊÕ·Ñ%dÔª\nÆÚ´ıÔÙ´ÎÏàÓö\n", Car[i].carnumber, price);
+		printf("è½¦ç‰Œå·ä¸º%sçš„è½¦å…±æ”¶è´¹%då…ƒ\næœŸå¾…å†æ¬¡ç›¸é‡\n", Car[i].carnumber, price);
 		Car[i].carnumber[0] = 0;
 		Car[i].floor = 0;
 		Car[i].position = 0;
@@ -399,20 +399,20 @@ void charging(struct car Car[20], FILE *fp) //È¡³µÊÕ·Ñ£¬Ô­Êı¾İÇå¿Õ
 		}
 	}
 	fclose(fp);
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	getchar();
 	system("cls");
 	parking_allocation_and_charging();
 }
-void function_carnumber(struct car Car[20], FILE *fp) //³µÅÆºÅ²éÑ¯
+void function_carnumber(struct car Car[20], FILE *fp) //è½¦ç‰Œå·æŸ¥è¯¢
 {
 	int i = 0, e = 0;
 	char carn[10];
 	time_t t2;
-	printf("ÇëÊäÈë³µÅÆºÅ£º");
+	printf("è¯·è¾“å…¥è½¦ç‰Œå·ï¼š");
 	getchar();
-	gets_s(carn);
+	gets(carn);
 	if ((fp = fopen("car.dat", "rb")) == NULL)
 	{
 		printf("cannot open this file\n");
@@ -427,25 +427,25 @@ void function_carnumber(struct car Car[20], FILE *fp) //³µÅÆºÅ²éÑ¯
 	}
 	if (e == 21)
 	{
-		printf("Ã»ÓĞÕâÁ¾³µÅ¶£¡");
+		printf("æ²¡æœ‰è¿™è¾†è½¦å“¦ï¼");
 	}
 	else
 	{
 		time(&t2);
 		Car[i].time = (t2 - Car[i].timeIn);
-		printf("                      ³µÅÆºÅ ²ãºÅ ³µÎ»ºÅ Í£³µÊ±¼ä(Ãë)\n");
+		printf("                      è½¦ç‰Œå· å±‚å· è½¦ä½å· åœè½¦æ—¶é—´(ç§’)\n");
 		printf("                      %s     %d      %d        %d\n", Car[i].carnumber, Car[i].floor, Car[i].position, Car[i].time);
 	}
 	fclose(fp);
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	system("cls");
 	parking_information_query();
 }
 
-void function_floor(struct car Car[20], FILE *fp) //²éÑ¯Â¥²ã
+void function_floor(struct car Car[20], FILE *fp) //æŸ¥è¯¢æ¥¼å±‚
 {
-	printf("ÇëÊäÈëÄúÒª²éµÄÂ¥²ã£º");
+	printf("è¯·è¾“å…¥æ‚¨è¦æŸ¥çš„æ¥¼å±‚ï¼š");
 	int fl, p, i = 0;
 	time_t t2;
 	scanf("%d", &fl);
@@ -464,10 +464,10 @@ void function_floor(struct car Car[20], FILE *fp) //²éÑ¯Â¥²ã
 			e++;
 	}
 	if (e == 20)
-		printf("ÕâÂ¥²ãÄ¾ÓĞ³µÅ¶£¡");
+		printf("è¿™æ¥¼å±‚æœ¨æœ‰è½¦å“¦ï¼");
 	else
 	{
-		printf("                      ³µÅÆºÅ ²ãºÅ ³µÎ»ºÅ Í£³µÊ±¼ä(Ãë)\n");
+		printf("                      è½¦ç‰Œå· å±‚å· è½¦ä½å· åœè½¦æ—¶é—´(ç§’)\n");
 		for (i = 0; i <= 20; i++)
 		{
 			if (Car[i].floor == fl && Car[i].carnumber[0])
@@ -479,15 +479,15 @@ void function_floor(struct car Car[20], FILE *fp) //²éÑ¯Â¥²ã
 		}
 	}
 	fclose(fp);
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	system("cls");
 	parking_information_query();
 }
 
-void function_pos(struct car Car[20], FILE *fp) //³µÎ»²éÑ¯
+void function_pos(struct car Car[20], FILE *fp) //è½¦ä½æŸ¥è¯¢
 {
-	printf("ÇëÊäÈëÄúÒª²éÑ¯µÄÂ¥²ãºÍ¶ÔÓ¦³µÎ»£º");
+	printf("è¯·è¾“å…¥æ‚¨è¦æŸ¥è¯¢çš„æ¥¼å±‚å’Œå¯¹åº”è½¦ä½ï¼š");
 	int fl, pos, i = 0;
 	time_t t2;
 	scanf("%d%d", &fl, &pos);
@@ -503,7 +503,7 @@ void function_pos(struct car Car[20], FILE *fp) //³µÎ»²éÑ¯
 		{
 			time(&t2);
 			Car[i].time = (t2 - Car[i].timeIn);
-			printf("                      ³µÅÆºÅ ²ãºÅ ³µÎ»ºÅ Í£³µÊ±¼ä(Ãë)\n");
+			printf("                      è½¦ç‰Œå· å±‚å· è½¦ä½å· åœè½¦æ—¶é—´(ç§’)\n");
 			printf("                      %s     %d      %d        %d\n", Car[i].carnumber, Car[i].floor, Car[i].position, Car[i].time);
 			break;
 		}
@@ -511,14 +511,14 @@ void function_pos(struct car Car[20], FILE *fp) //³µÎ»²éÑ¯
 			continue;
 	}
 	if (i == 21)
-		printf("ÕâÀïÄ¾ÓĞ³µÅ¶£¡");
+		printf("è¿™é‡Œæœ¨æœ‰è½¦å“¦ï¼");
 	fclose(fp);
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	system("cls");
 	parking_information_query();
 }
-void tiaozheng(struct car Car[20], FILE *fp, int f) //ÈË¹¤Î¬»¤µ÷Õû
+void tiaozheng(struct car Car[20], FILE *fp, int f) //äººå·¥ç»´æŠ¤è°ƒæ•´
 {
 
 	if ((fp = fopen("car.dat", "rb+")) == NULL)
@@ -527,7 +527,7 @@ void tiaozheng(struct car Car[20], FILE *fp, int f) //ÈË¹¤Î¬»¤µ÷Õû
 		exit(0);
 	}
 	int i = 0, j = 0, k = 1;
-	for (i = 0; i < 20; i++) //¶ÁÈ¡ÎÄ¼şÊı¾İ
+	for (i = 0; i < 20; i++) //è¯»å–æ–‡ä»¶æ•°æ®
 	{
 		fread(&Car[i], sizeof(struct car), 1, fp);
 	}
@@ -566,11 +566,11 @@ void tiaozheng(struct car Car[20], FILE *fp, int f) //ÈË¹¤Î¬»¤µ÷Õû
 			break;
 	}
 	if (i == 21)
-		printf("±§Ç¸Ã»ÓĞ¿Õ³µÎ»ÁËÚÀ£¡");
+		printf("æŠ±æ­‰æ²¡æœ‰ç©ºè½¦ä½äº†è¯¶ï¼");
 	else
 	{
-		/*printf("µ±Ç°¿ÕµÄ³µÎ»ÓĞ:\n");
-		printf("        ²ãºÅ       ³µÎ»ºÅ \n");
+		/*printf("å½“å‰ç©ºçš„è½¦ä½æœ‰:\n");
+		printf("        å±‚å·       è½¦ä½å· \n");
 		for(i=0;i<21;i++)
 		{
 			if(now[i].posi==0)
@@ -579,7 +579,7 @@ void tiaozheng(struct car Car[20], FILE *fp, int f) //ÈË¹¤Î¬»¤µ÷Õû
 			}
 		}*/
 		int a, b;
-		printf("ÇëÊäÈëÄúÏëÍ£³µµÄÎ»ÖÃ£º");
+		printf("è¯·è¾“å…¥æ‚¨æƒ³åœè½¦çš„ä½ç½®ï¼š");
 		scanf("%d%d", &a, &b);
 		Car[f].floor = a;
 		Car[f].position = b;
@@ -592,24 +592,24 @@ void tiaozheng(struct car Car[20], FILE *fp, int f) //ÈË¹¤Î¬»¤µ÷Õû
 		int n=Car[f].floor;
 		now[(n-1)*10+m].posi=0;
 		Car[f].floor==a;Car[f].position=b;*/
-		printf("µ÷Õû³É¹¦£¡\n");
+		printf("è°ƒæ•´æˆåŠŸï¼\n");
 	}
 	fclose(fp);
 }
-void manual_maintenance_and_adjustment(struct car Car[20], FILE *fp) //ÈË¹¤Î¬»¤
+void manual_maintenance_and_adjustment(struct car Car[20], FILE *fp) //äººå·¥ç»´æŠ¤
 {
 	int i = 0, e = 0;
 	char carn[10];
 	time_t t2;
-	printf("ÇëÊäÈë³µÅÆºÅ£º");
+	printf("è¯·è¾“å…¥è½¦ç‰Œå·ï¼š");
 	getchar();
-	gets_s(carn);
+	gets(carn);
 	if ((fp = fopen("car.dat", "rb")) == NULL)
 	{
 		printf("cannot open this file\n");
 		exit(0);
 	}
-	for (i = 0; i < 20; i++) //¶ÁÈ¡ÎÄ¼şÊı¾İ
+	for (i = 0; i < 20; i++) //è¯»å–æ–‡ä»¶æ•°æ®
 	{
 		fread(&Car[i], sizeof(struct car), 1, fp);
 	}
@@ -623,13 +623,13 @@ void manual_maintenance_and_adjustment(struct car Car[20], FILE *fp) //ÈË¹¤Î¬»¤
 	int f = i;
 	if (e == 20)
 	{
-		printf("Ã»ÓĞÕâÁ¾³µÅ¶£¡");
+		printf("æ²¡æœ‰è¿™è¾†è½¦å“¦ï¼");
 	}
 	else
 	{
-		printf("Äúµ±Ç°µÄ³µÎ»ÊÇ%d²ã%dºÅÎ»\n", Car[i].floor, Car[i].position);
+		printf("æ‚¨å½“å‰çš„è½¦ä½æ˜¯%då±‚%då·ä½\n", Car[i].floor, Car[i].position);
 
-		printf("ÇëÎÊÄúĞèÒªµ÷ÕûÎ»ÖÃÂğ£¿\nÇëÊäÈëY»òN\n");
+		printf("è¯·é—®æ‚¨éœ€è¦è°ƒæ•´ä½ç½®å—ï¼Ÿ\nè¯·è¾“å…¥Yæˆ–N\n");
 		char a;
 		scanf("%c", &a);
 		switch (a)
@@ -638,16 +638,16 @@ void manual_maintenance_and_adjustment(struct car Car[20], FILE *fp) //ÈË¹¤Î¬»¤
 			tiaozheng(Car, fp, f);
 			break;
 		case 'N':
-			printf("ºÃµÄÄØ£¡×£ÄúÍ£³µÓä¿ì£¡");
+			printf("å¥½çš„å‘¢ï¼ç¥æ‚¨åœè½¦æ„‰å¿«ï¼");
 			break;
 		default:
-			printf("ÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡");
+			printf("è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼");
 			parking_allocation_and_charging();
 			break;
 		}
 	}
 	fclose(fp);
-	printf("°´»Ø³µ¼ü·µ»ØÉÏÒ»¼¶¡£");
+	printf("æŒ‰å›è½¦é”®è¿”å›ä¸Šä¸€çº§ã€‚");
 	getchar();
 	getchar();
 	system("cls");

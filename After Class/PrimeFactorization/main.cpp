@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <windows.h>
@@ -10,32 +10,32 @@ void DrawBox();
 int main()
 {
 
-	double a, b, i=1;
+	double a, b, i = 1;
 	int len = 0;
-	printf("ÇëÊäÈëÄúÒª¼ÆËãµÄ·¶Î§£¬ÊäÈëµÄÊı×Ö±ØĞëÎª´óÓÚ0µÄÕûÊı£¬ÀıÈç¡°3-100¡±\n");
-	do//Èç¹ûÊäÈëµÄÊı¾İÓĞÎó£¬ÔòÖØĞÂÊäÈë¡£
+	printf("è¯·è¾“å…¥æ‚¨è¦è®¡ç®—çš„èŒƒå›´ï¼Œè¾“å…¥çš„æ•°å­—å¿…é¡»ä¸ºå¤§äº0çš„æ•´æ•°ï¼Œä¾‹å¦‚â€œ3-100â€\n");
+	do //å¦‚æœè¾“å…¥çš„æ•°æ®æœ‰è¯¯ï¼Œåˆ™é‡æ–°è¾“å…¥ã€‚
 	{
-		scanf_s("%lf-%lf", &a, &b);
+		scanf("%lf-%lf", &a, &b);
 		if (floor(a + 0.5) != a || floor(b + 0.5) != b || a <= 0 || b <= 0)
-			printf("ÄúÊäÈëµÄÊı¾İÓĞÎó£¬ÇëÖØĞÂÊäÈë\n");
+			printf("æ‚¨è¾“å…¥çš„æ•°æ®æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥\n");
 		else
 			i++;
-	}while (i == 1);
-	
-	FILE* fp;
+	} while (i == 1);
+
+	FILE *fp;
 	fp = fopen("data.txt", "w");
 	if (fp == NULL)
 	{
-		printf("ÎÄ¼ş´ò¿ªÊ§°Ü");
+		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥");
 		exit(0);
 	}
 
 	HideCursor();
 	system("cls");
-	printf("ÕıÔÚ´¦Àí%0.lf-%0.lfÖ®¼äµÄÊı\n", a, b);
+	printf("æ­£åœ¨å¤„ç†%0.lf-%0.lfä¹‹é—´çš„æ•°\n", a, b);
 	DrawBox();
 
-	if (a > b)//Èç¹ûa>b£¬Ôò½»»»a¡¢bµÄÖµ¡£
+	if (a > b) //å¦‚æœa>bï¼Œåˆ™äº¤æ¢aã€bçš„å€¼ã€‚
 	{
 		double c = a;
 		a = b;
@@ -43,76 +43,76 @@ int main()
 	}
 
 	double m = a;
-	if (m == 1)//ÌØÊâÇé¿ö£¬µ±ÊäÈëµÄÊı¾İ°üº¬1Ê±£¬Ö±½ÓÊä³ö£¬È»ºóÌøµ½ÏÂÒ»¸öÊı¾İ¡£
+	if (m == 1) //ç‰¹æ®Šæƒ…å†µï¼Œå½“è¾“å…¥çš„æ•°æ®åŒ…å«1æ—¶ï¼Œç›´æ¥è¾“å‡ºï¼Œç„¶åè·³åˆ°ä¸‹ä¸€ä¸ªæ•°æ®ã€‚
 	{
-		fprintf(fp,"1=1\n\n");
+		fprintf(fp, "1=1\n\n");
 		m++;
 	}
 
-	while(m<=b)
+	while (m <= b)
 	{
 		Gotoxy(0, 6);
-		printf("ÕıÔÚ´¦Àí%.0lf£¬ÇëÉÔºó", m);
-		fprintf(fp,"%.0lf=", m);
-		while (fmod(m, i) && i <= sqrt(m))//ÅĞ¶ÏÊÇ·ñÎªÖÊÊı
+		printf("æ­£åœ¨å¤„ç†%.0lfï¼Œè¯·ç¨å", m);
+		fprintf(fp, "%.0lf=", m);
+		while (fmod(m, i) && i <= sqrt(m)) //åˆ¤æ–­æ˜¯å¦ä¸ºè´¨æ•°
 			i++;
 		if (i > sqrt(m))
 			i = m;
 		double n = m / i;
-		fprintf(fp,"%.0lf", i);
+		fprintf(fp, "%.0lf", i);
 
-		while(n-1)//¶ÔºÍÊı²éÕÒËùÓĞÖÊÒòÊı
+		while (n - 1) //å¯¹å’Œæ•°æŸ¥æ‰¾æ‰€æœ‰è´¨å› æ•°
 		{
 			while (fmod(n, i) && i <= sqrt(n))
 				i++;
 			if (i > sqrt(n))
 				i = n;
 			n = n / i;
-			fprintf(fp,"*%.0lf", i);
+			fprintf(fp, "*%.0lf", i);
 			Gotoxy(52, 3);
-			printf("ÒÑÍê³É%.2lf%%", 100 * (m - a) / (b - a));
+			printf("å·²å®Œæˆ%.2lf%%", 100 * (m - a) / (b - a));
 			if (25 * (m - a) / (b - a) - 1 > len)
 			{
 				len++;
 				Gotoxy(2 * len, 3);
-				printf("¨€");
+				printf("â–ˆ");
 			}
 		}
 
-		fprintf(fp,"\n\n");
+		fprintf(fp, "\n\n");
 		m++;
 		i = 2;
 	}
 
 	Gotoxy(0, 3);
-	printf("¨U ¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€¨U ÒÑÍê³É100.00%");
+	printf("â•‘ â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•‘ å·²å®Œæˆ100.00%");
 	Gotoxy(0, 6);
-	printf("¼ÆËãÒÑÍê³É£¬ÎÄ¼şÒÑ±£´æÖÁ³ÌĞòËùÔÚÎÄ¼ş¼Ğ\n²é¿´¼ÆËã½á¹û");
+	printf("è®¡ç®—å·²å®Œæˆï¼Œæ–‡ä»¶å·²ä¿å­˜è‡³ç¨‹åºæ‰€åœ¨æ–‡ä»¶å¤¹\næŸ¥çœ‹è®¡ç®—ç»“æœ");
 	system("pause");
 	fclose(fp);
 	system("data.txt");
 	return 0;
 }
 
-void HideCursor()//Òş²Ø¹â±ê
+void HideCursor() //éšè—å…‰æ ‡
 {
-	CONSOLE_CURSOR_INFO cursor_info = { 1, 0 };//ºó±ßµÄ0´ú±í¹â±ê²»¿É¼û
+	CONSOLE_CURSOR_INFO cursor_info = {1, 0}; //åè¾¹çš„0ä»£è¡¨å…‰æ ‡ä¸å¯è§
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
 }
 
-void Gotoxy(int x, int y)//¹â±êÒÆ¶¯
+void Gotoxy(int x, int y) //å…‰æ ‡ç§»åŠ¨
 {
-	HANDLE hout; //¶¨Òå¾ä±ú±äÁ¿hout
-	COORD coord; //¶¨Òå½á¹¹Ìåcoord
+	HANDLE hout; //å®šä¹‰å¥æŸ„å˜é‡hout
+	COORD coord; //å®šä¹‰ç»“æ„ä½“coord
 	coord.X = x;
 	coord.Y = y;
-	hout = GetStdHandle(STD_OUTPUT_HANDLE);//»ñµÃ±ê×¼Êä³ö£¨ÆÁÄ»£©¾ä±ú
-	SetConsoleCursorPosition(hout, coord);//ÒÆ¶¯¹â±ê
+	hout = GetStdHandle(STD_OUTPUT_HANDLE); //è·å¾—æ ‡å‡†è¾“å‡ºï¼ˆå±å¹•ï¼‰å¥æŸ„
+	SetConsoleCursorPosition(hout, coord);	//ç§»åŠ¨å…‰æ ‡
 }
 
-void DrawBox()//»­±ß¿ò
+void DrawBox() //ç”»è¾¹æ¡†
 {
-	printf("\n¨X¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨[\n");
-	printf("¨U                                                 ¨U");
-	printf("\n¨^¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨a\n");
+	printf("\nâ•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—");
+	printf("\nâ•‘                                                 â•‘");
+	printf("\nâ•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•\n");
 }

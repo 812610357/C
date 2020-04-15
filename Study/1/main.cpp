@@ -1,4 +1,4 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
@@ -17,7 +17,7 @@ int main()
                     neg++;
             }
         }
-        printf("°¡neg=%d,posit=%d\n", neg, posit);
+        printf("å•Šneg=%d,posit=%d\n", neg, posit);
         system("pause");
     }
     {
@@ -149,7 +149,7 @@ int main()
     {
         int n, i = 0;
         long double s = 0;
-        printf("ÇëÊäÈë0ÖÁ511Ö®¼äµÄÕûÊý n=");
+        printf("è¯·è¾“å…¥0è‡³511ä¹‹é—´çš„æ•´æ•° n=");
         scanf("%d", &n);
         while (i <= n)
         {
@@ -161,7 +161,7 @@ int main()
     }
     {
         int n, i = 1;
-        printf("ÇëÊäÈë1ÖÁ9Ö®¼äµÄÕûÊý n=");
+        printf("è¯·è¾“å…¥1è‡³9ä¹‹é—´çš„æ•´æ•° n=");
         scanf("%d", &n);
         unsigned long int a = 0, b = 1;
         while (i <= n)

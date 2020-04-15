@@ -1,11 +1,11 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <stdlib.h>
 
 int main()
 {
     {
         float x, y;
-        printf("ÇëÊäÈëx=");
+        printf("è¯·è¾“å…¥x=");
         scanf("%f", &x);
         {
             if (x > 10)
@@ -18,32 +18,32 @@ int main()
     }
     {
         int m;
-        printf("ÄúÏë²éÑ¯µÄÔÂ·İÊÇ:");
+        printf("æ‚¨æƒ³æŸ¥è¯¢çš„æœˆä»½æ˜¯:");
         scanf("%d", &m);
         switch (m)
         {
         case 1:
         case 2:
         case 3:
-            printf("ÄúÊäÈëµÄÔÂ·İÔÚ´º¼¾\n");
+            printf("æ‚¨è¾“å…¥çš„æœˆä»½åœ¨æ˜¥å­£\n");
             break;
         case 4:
         case 5:
         case 6:
-            printf("ÄúÊäÈëµÄÔÂ·İÔÚÏÄ¼¾\n");
+            printf("æ‚¨è¾“å…¥çš„æœˆä»½åœ¨å¤å­£\n");
             break;
         case 7:
         case 8:
         case 9:
-            printf("ÄúÊäÈëµÄÔÂ·İÔÚÇï¼¾\n");
+            printf("æ‚¨è¾“å…¥çš„æœˆä»½åœ¨ç§‹å­£\n");
             break;
         case 10:
         case 11:
         case 12:
-            printf("ÄúÊäÈëµÄÔÂ·İÔÚ¶¬¼¾\n");
+            printf("æ‚¨è¾“å…¥çš„æœˆä»½åœ¨å†¬å­£\n");
             break;
         default:
-            printf("ÄúÊäÈëµÄÖµÓĞÎó\n");
+            printf("æ‚¨è¾“å…¥çš„å€¼æœ‰è¯¯\n");
             break;
         }
         system("pause");
