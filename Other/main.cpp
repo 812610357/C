@@ -15,7 +15,7 @@ int main()
 			i = i * 10;
 		}
 		n = n % i;
-		printf("%d", n);
+		printf("%d\n", n);
 		system("pause");
 	}
 	{
@@ -36,7 +36,7 @@ int main()
 			sum = (double)1 / i + sum;
 			i++;
 		}
-		printf("sum=%lf", sum);
+		printf("sum=%lf\n", sum);
 		system("pause");
 	}
 	{
