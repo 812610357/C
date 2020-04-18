@@ -1,9 +1,23 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
 int main()
 {
+	{
+		long n, m;
+		int i = 1;
+		printf("n=");
+		scanf("%d", &n);
+		m = n;
+		while (m >= 10)
+		{
+			m = m / 10;
+			i = i * 10;
+		}
+		n = n % i;
+		printf("%d", n);
+		system("pause");
+	}
 	{
 		int i;
 		for (i = 2; i <= 100; i = i + 2)
