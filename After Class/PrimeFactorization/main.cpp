@@ -9,7 +9,6 @@ void DrawBox();
 
 int main()
 {
-
 	double a, b, i = 1;
 	int len = 0;
 	printf("请输入您要计算的范围，输入的数字必须为大于0的整数，例如“3-100”\n");
@@ -21,7 +20,6 @@ int main()
 		else
 			i++;
 	} while (i == 1);
-
 	FILE *fp;
 	fp = fopen("data.txt", "w");
 	if (fp == NULL)
@@ -29,26 +27,22 @@ int main()
 		printf("文件打开失败");
 		exit(0);
 	}
-
 	HideCursor();
 	system("cls");
 	printf("正在处理%0.lf-%0.lf之间的数\n", a, b);
 	DrawBox();
-
 	if (a > b) //如果a>b，则交换a、b的值。
 	{
 		double c = a;
 		a = b;
 		b = c;
 	}
-
 	double m = a;
 	if (m == 1) //特殊情况，当输入的数据包含1时，直接输出，然后跳到下一个数据。
 	{
 		fprintf(fp, "1=1\n\n");
 		m++;
 	}
-
 	while (m <= b)
 	{
 		Gotoxy(0, 6);
@@ -60,7 +54,6 @@ int main()
 			i = m;
 		double n = m / i;
 		fprintf(fp, "%.0lf", i);
-
 		while (n - 1) //对和数查找所有质因数
 		{
 			while (fmod(n, i) && i <= sqrt(n))
@@ -78,12 +71,10 @@ int main()
 				printf("█");
 			}
 		}
-
 		fprintf(fp, "\n\n");
 		m++;
 		i = 2;
 	}
-
 	Gotoxy(0, 3);
 	printf("║ ████████████████████████║ 已完成100.00%");
 	Gotoxy(0, 6);
@@ -93,14 +84,14 @@ int main()
 	system("data.txt");
 	return 0;
 }
-
-void HideCursor() //隐藏光标
+//隐藏光标
+void HideCursor()
 {
 	CONSOLE_CURSOR_INFO cursor_info = {1, 0}; //后边的0代表光标不可见
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursor_info);
 }
-
-void Gotoxy(int x, int y) //光标移动
+//光标移动
+void Gotoxy(int x, int y)
 {
 	HANDLE hout; //定义句柄变量hout
 	COORD coord; //定义结构体coord
@@ -109,8 +100,8 @@ void Gotoxy(int x, int y) //光标移动
 	hout = GetStdHandle(STD_OUTPUT_HANDLE); //获得标准输出（屏幕）句柄
 	SetConsoleCursorPosition(hout, coord);	//移动光标
 }
-
-void DrawBox() //画边框
+//画边框
+void DrawBox()
 {
 	printf("\n╔═════════════════════════════════════════════════╗");
 	printf("\n║                                                 ║");
