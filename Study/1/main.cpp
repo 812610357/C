@@ -5,6 +5,11 @@
 int main()
 {
     {
+        int n = 0, i = 1;
+        n += (++i)++;
+        printf("n=%d,i=%d", n, i);
+    }
+    {
         int i, num, neg = 0, posit = 0;
         for (i = 1; i <= 6; i++)
         {
