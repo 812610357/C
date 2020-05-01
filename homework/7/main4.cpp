@@ -11,7 +11,7 @@ void Del(int index, int data[]);
 int main()
 {
     int data[N], i, num, index;
-    printf("请输入一个%d为数组:\n", N);
+    printf("请输入一个包含%d个元素的数组:\n", N);
     for (i = 0; i < len; i++)
         scanf("%d", &data[i]);
     printf("输入的数组为：\n");
