@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int SumRow(int (*p)[5]);
+#define N 5
+
+int SumRow(int (*p)[N]);
 
 int main()
 {
-    int a[5][5] = {{1, 2, 3, 4, 5},
+    int a[N][N] = {{1, 2, 3, 4, 5},
                    {4, 5, 6, 7, 8},
                    {7, 8, 9, 1, 2},
                    {0, 8, 7, 3, 4},
@@ -16,7 +18,7 @@ int main()
     return 0;
 }
 
-int SumRow(int (*p)[5])
+int SumRow(int (*p)[N])
 {
     int sum = 0;
     for (int i = 0; i < 5; i++)
