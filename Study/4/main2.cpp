@@ -4,6 +4,12 @@
 main()
 {
     {
+        int x[10]={0,1,2,3,4,5,6,7,8,9},*p;
+        p=x+3;
+        printf("%d",*(p++));
+        system("pause");
+    }
+    {
         char *s[4], **p;
         int i;
         s[0] = "China";
