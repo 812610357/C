@@ -9,10 +9,12 @@ void Reorder(char (*p)[N]);
 int main()
 {
     int i;
-    char a[10][N] = {"sad", "wqe", "4ew", "32e", "ew1", "45y", "eri", "i8y", "ji6", "766"};
+    char a[10][N];
+    printf("请输入十个字符串\n");
     for (i = 0; i < 10; i++)
         gets(a[i]);
     Reorder(a);
+    printf("排序后的字符串为\n");
     for (i = 0; i < 10; i++)
         printf("%s\n", a[i]);
     system("pause");
