@@ -12,8 +12,11 @@ void fun(int *s)
         s[j] += s[j + 1];
     } while (++j < 2);
 }
+
 main()
 {
+    char _c = '\084';
+    int k = 0xffa;
     printf("%d\n", sizeof(a));
     int k, b[10] = {1, 2, 3, 4, 5};
     for (k = 1; k < 3; k++)
